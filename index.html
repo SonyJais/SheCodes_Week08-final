@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
+        </form>
+      </header>
+      <main>
+        <div class="main-data">
+          <div>
+            <h1 class="cityName" id="cityName">New Delhi</h1>
+            <p class="details">
+              <span class="dayName">Tuesday</span>
+              <span class="time"> 10:59</span>,
+              <span class="weather"> cloudy </span><br />
+              Humidity:
+              <span class="colored"> <span id="humidity">10</span>%</span>,
+              Wind:
+              <span class="colored"><span id="windSpeed">10.1</span>km/hr</span>
+            </p>
+          </div>
+          <div class="tempEmoji">
+            <div class="metric">°C</div>
+            <div class="temp">27</div>
+            <div class="emoji">
+              <div id="icon">
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-night.png"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+        </div>
+        <div class="forecast-yes">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-day">
+                Sun
+                <div>
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-night.png"
+                    alt=""
+                    width="46"
+                  />
+                </div>
+                <div class="forcast-minmax">
+                  <span class="temp-max">18°</span>
+                  <span class="temp-min">12°</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        This project was coded by
+        <a href="https://github.com/SonyJais" target="_blank">Sony Jaiswal</a>
+        and is
+        <a href="https://github.com/SonyJais/SheCodes-Week07" target="_blank"
+          >open-sourced on GitHub</a
+        >
+        and
+        <a
+          href="https://imaginative-melomakarona-81de0c.netlify.app/"
+          target="_blank"
+          >is hosted on Netlify</a
+        >
+      </footer>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
