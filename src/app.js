@@ -19,8 +19,8 @@ function refreshWeather(response) {
   let dayVal = document.querySelector(".dayName");
   let date = new Date(response.data.time * 1000);
   minuteVal = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-  dayVal = date.getDay(date);
-  let days = [
+  dayValue = date.getDay(date);
+  let daysFull = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -30,12 +30,14 @@ function refreshWeather(response) {
     "Saturday",
   ];
   timeVal.innerHTML = `${date.getHours(date)}:${minuteVal}`;
-  dayVal.innerHTML = days[dayVal];
+  dayVal.innerHTML = daysFull[dayValue];
 
   let iconVal = document.querySelector("#icon");
   let emojiLink = `<img src="${response.data.condition.icon_url}" />`;
   iconVal.innerHTML = emojiLink;
   console.log(emojiLink);
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -56,7 +58,14 @@ function buttonClick(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "aa56bt976def310e73o04395caed4d33";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
